@@ -45,10 +45,12 @@
 namespace kuka_rsi_hw_interface
 {
 
+unsigned int ndof = 9;
+
 KukaHardwareInterface::KukaHardwareInterface() :
-    joint_position_(6, 0.0), joint_velocity_(6, 0.0), joint_effort_(6, 0.0), joint_position_command_(6, 0.0), joint_velocity_command_(
-        6, 0.0), joint_effort_command_(6, 0.0), joint_names_(6), rsi_initial_joint_positions_(6, 0.0), rsi_joint_position_corrections_(
-        6, 0.0), ipoc_(0), n_dof_(6)
+    joint_position_(ndof, 0.0), joint_velocity_(ndof, 0.0), joint_effort_(ndof, 0.0), joint_position_command_(ndof, 0.0), joint_velocity_command_(
+        ndof, 0.0), joint_effort_command_(ndof, 0.0), joint_names_(ndof), rsi_initial_joint_positions_(ndof, 0.0), rsi_joint_position_corrections_(
+        ndof, 0.0), ipoc_(0), n_dof_(ndof)
 {
   in_buffer_.resize(1024);
   out_buffer_.resize(1024);
@@ -104,9 +106,13 @@ bool KukaHardwareInterface::read(const ros::Time time, const ros::Duration perio
   }
 
   rsi_state_ = RSIState(in_buffer_);
-  for (std::size_t i = 0; i < n_dof_; ++i)
+  for (std::size_t i = 0; i < 6; ++i)
   {
     joint_position_[i] = DEG2RAD * rsi_state_.positions[i];
+  }
+  for (std::size_t i = 6; i < n_dof_; ++i)
+  {
+    joint_position_[i] = rsi_state_.positions[i] / 1000;
   }
   ipoc_ = rsi_state_.ipoc;
 
@@ -117,9 +123,13 @@ bool KukaHardwareInterface::write(const ros::Time time, const ros::Duration peri
 {
   out_buffer_.resize(1024);
 
-  for (std::size_t i = 0; i < n_dof_; ++i)
+  for (std::size_t i = 0; i < 6; ++i)
   {
     rsi_joint_position_corrections_[i] = (RAD2DEG * joint_position_command_[i]) - rsi_initial_joint_positions_[i];
+  }
+  for (std::size_t i = 6; i < 9; ++i)
+  {
+    rsi_joint_position_corrections_[i] = (joint_position_command_[i] * 1000) - rsi_initial_joint_positions_[i];
   }
 
   out_buffer_ = RSICommand(rsi_joint_position_corrections_, ipoc_).xml_doc;
@@ -144,9 +154,15 @@ void KukaHardwareInterface::start()
   }
 
   rsi_state_ = RSIState(in_buffer_);
-  for (std::size_t i = 0; i < n_dof_; ++i)
+  for (std::size_t i = 0; i < 6; ++i)
   {
     joint_position_[i] = DEG2RAD * rsi_state_.positions[i];
+    joint_position_command_[i] = joint_position_[i];
+    rsi_initial_joint_positions_[i] = rsi_state_.initial_positions[i];
+  }
+  for (std::size_t i = 6; i < n_dof_; ++i)
+  {
+    joint_position_[i] = rsi_state_.positions[i]/1000;
     joint_position_command_[i] = joint_position_[i];
     rsi_initial_joint_positions_[i] = rsi_state_.initial_positions[i];
   }

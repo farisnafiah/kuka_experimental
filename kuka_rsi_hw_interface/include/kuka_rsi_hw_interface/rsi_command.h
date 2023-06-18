@@ -71,8 +71,22 @@ RSICommand::RSICommand(std::vector<double> joint_position_correction, unsigned l
   el->SetAttribute("A4", std::to_string(joint_position_correction[3]));
   el->SetAttribute("A5", std::to_string(joint_position_correction[4]));
   el->SetAttribute("A6", std::to_string(joint_position_correction[5]));
-
   root->LinkEndChild(el);
+
+
+  // External axes
+  el = new TiXmlElement("EK");
+  // Add string attribute
+  el->SetAttribute("E1", std::to_string(joint_position_correction[6]));
+  el->SetAttribute("E2", std::to_string(joint_position_correction[7]));
+  el->SetAttribute("E3", std::to_string(joint_position_correction[8]));
+  el->SetAttribute("E4", std::to_string(joint_position_correction[9]));
+  el->SetAttribute("E5", std::to_string(joint_position_correction[10]));
+  el->SetAttribute("E6", std::to_string(joint_position_correction[11]));
+  root->LinkEndChild(el);
+
+
+
   el = new TiXmlElement("IPOC");
   el->LinkEndChild(new TiXmlText(std::to_string(ipoc)));
   root->LinkEndChild(el);
