@@ -69,9 +69,10 @@ DECL INT CONTID	; ContainerID
 
 
 PTP $POS_ACT
+;PTP {A1 -85.000,A2 -107.000,A3 103.000,A4 138.000,A5 84.000,A6 -240.000}
 
 ; Create RSI Context 
-ret = RSI_CREATE("ros_rsi_extaxis",CONTID,TRUE)
+ret = RSI_CREATE("ros_rsi",CONTID,TRUE)
 IF (ret <> RSIOK) THEN
   HALT
 ENDIF
@@ -97,6 +98,7 @@ IF (ret <> RSIOK) THEN
   HALT
 ENDIF
 
+;PTP {A1 0, A2 -90, A3 90, A4 0, A5 0, A6 0}
 
 PTP $POS_ACT
 END

@@ -100,11 +100,7 @@ bool KukaHardwareInterface::read(const ros::Time time, const ros::Duration perio
     return false;
   }
 
-  if (rt_rsi_pub_->trylock()){
-    rt_rsi_pub_->msg_.data = in_buffer_;
-    rt_rsi_pub_->unlockAndPublish();
-  }
-
+  
   rsi_state_ = RSIState(in_buffer_);
   for (std::size_t i = 0; i < 6; ++i)
   {
@@ -127,12 +123,16 @@ bool KukaHardwareInterface::write(const ros::Time time, const ros::Duration peri
   {
     rsi_joint_position_corrections_[i] = (RAD2DEG * joint_position_command_[i]) - rsi_initial_joint_positions_[i];
   }
-  for (std::size_t i = 6; i < 9; ++i)
+  for (std::size_t i = 6; i < n_dof_; ++i)
   {
     rsi_joint_position_corrections_[i] = (joint_position_command_[i] * 1000) - rsi_initial_joint_positions_[i];
   }
 
   out_buffer_ = RSICommand(rsi_joint_position_corrections_, ipoc_).xml_doc;
+  if (rt_rsi_pub_->trylock()){
+    rt_rsi_pub_->msg_.data = out_buffer_;
+    rt_rsi_pub_->unlockAndPublish();
+  }
   server_->send(out_buffer_);
 
   return true;

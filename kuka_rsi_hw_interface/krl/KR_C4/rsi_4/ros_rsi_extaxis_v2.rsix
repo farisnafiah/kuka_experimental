@@ -4,6 +4,14 @@
 <!-- RobotSensorInterface 4.1 B514 -->
 <RsiContext xsi:schemaLocation="RsiContext RsiContext.xsd" SchemaVersion="2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="RsiContext">
    <RsiObjects xmlns="RsiDriver">
+      <RsiObject ObjTypeId="64" ObjType="Ethernet" ObjId="Ethernet_1">
+         <Parameters>
+            <Parameter IsRuntime="false" Name="ConfigFile" ParamId="0" ParamValue="ros_rsi_extaxis_v2.xml" />
+            <Parameter Name="Timeout" ParamId="0" ParamValue="100" />
+            <Parameter Name="Flag" ParamId="3" ParamValue="-1" />
+            <Parameter Name="Precision" ParamId="7" ParamValue="4" />
+         </Parameters>
+      </RsiObject>
       <RsiObject ObjTypeId="33" ObjType="AxisCorr" ObjId="AxisCorr_1">
          <Inputs>
             <Input InIdx="0" OutObjId="Ethernet_1" OutIdx="0" />
@@ -14,42 +22,18 @@
             <Input InIdx="5" OutObjId="Ethernet_1" OutIdx="5" />
          </Inputs>
          <Parameters>
-            <Parameter Name="LowerLimA1" ParamId="0" ParamValue="-180" />
-            <Parameter Name="LowerLimA2" ParamId="1" ParamValue="-90" />
-            <Parameter Name="LowerLimA3" ParamId="2" ParamValue="-200" />
-            <Parameter Name="LowerLimA4" ParamId="3" ParamValue="-180" />
-            <Parameter Name="LowerLimA5" ParamId="4" ParamValue="-180" />
-            <Parameter Name="LowerLimA6" ParamId="5" ParamValue="-180" />
-            <Parameter Name="UpperLimA1" ParamId="6" ParamValue="180" />
-            <Parameter Name="UpperLimA2" ParamId="7" ParamValue="180" />
-            <Parameter Name="UpperLimA3" ParamId="8" ParamValue="180" />
-            <Parameter Name="UpperLimA4" ParamId="9" ParamValue="180" />
-            <Parameter Name="UpperLimA5" ParamId="10" ParamValue="100" />
-            <Parameter Name="UpperLimA6" ParamId="11" ParamValue="180" />
-         </Parameters>
-      </RsiObject>
-      <RsiObject ObjTypeId="64" ObjType="Ethernet" ObjId="Ethernet_1">
-         <Parameters>
-            <Parameter IsRuntime="false" Name="ConfigFile" ParamId="0" ParamValue="ros_rsi_ethernet_extaxis.xml" />
-            <Parameter Name="Timeout" ParamId="0" ParamValue="1000" />
-            <Parameter Name="Flag" ParamId="3" ParamValue="1" />
-            <Parameter Name="Precision" ParamId="7" ParamValue="4" />
-         </Parameters>
-      </RsiObject>
-      <RsiObject ObjTypeId="82" ObjType="AxisCorrMon" ObjId="AxisCorrMon_1">
-         <Parameters>
-            <Parameter Name="MaxA1" ParamId="0" ParamValue="180" />
-            <Parameter Name="MaxA2" ParamId="1" ParamValue="180" />
-            <Parameter Name="MaxA3" ParamId="2" ParamValue="180" />
-            <Parameter Name="MaxA4" ParamId="3" ParamValue="180" />
-            <Parameter Name="MaxA5" ParamId="4" ParamValue="180" />
-            <Parameter Name="MaxA6" ParamId="5" ParamValue="180" />
-            <Parameter Name="MaxE1" ParamId="6" ParamValue="180" />
-            <Parameter Name="MaxE2" ParamId="7" ParamValue="6.0" />
-            <Parameter Name="MaxE3" ParamId="8" ParamValue="6.0" />
-            <Parameter Name="MaxE4" ParamId="9" ParamValue="6.0" />
-            <Parameter Name="MaxE5" ParamId="10" ParamValue="6.0" />
-            <Parameter Name="MaxE6" ParamId="11" ParamValue="6.0" />
+            <Parameter Name="LowerLimA1" ParamId="0" ParamValue="-20" />
+            <Parameter Name="LowerLimA2" ParamId="1" ParamValue="-20" />
+            <Parameter Name="LowerLimA3" ParamId="2" ParamValue="-20" />
+            <Parameter Name="LowerLimA4" ParamId="3" ParamValue="-20" />
+            <Parameter Name="LowerLimA5" ParamId="4" ParamValue="-20" />
+            <Parameter Name="LowerLimA6" ParamId="5" ParamValue="-20" />
+            <Parameter Name="UpperLimA1" ParamId="6" ParamValue="20" />
+            <Parameter Name="UpperLimA2" ParamId="7" ParamValue="20" />
+            <Parameter Name="UpperLimA3" ParamId="8" ParamValue="20" />
+            <Parameter Name="UpperLimA4" ParamId="9" ParamValue="20" />
+            <Parameter Name="UpperLimA5" ParamId="10" ParamValue="20" />
+            <Parameter Name="UpperLimA6" ParamId="11" ParamValue="20" />
          </Parameters>
       </RsiObject>
       <RsiObject ObjTypeId="87" ObjType="AxisCorrExt" ObjId="AxisCorrExt_1">
@@ -62,18 +46,66 @@
             <Input InIdx="5" OutObjId="Ethernet_1" OutIdx="11" />
          </Inputs>
          <Parameters>
-            <Parameter Name="LowerLimE1" ParamId="0" ParamValue="-11" />
-            <Parameter Name="LowerLimE2" ParamId="1" ParamValue="-15" />
-            <Parameter Name="LowerLimE3" ParamId="2" ParamValue="-11" />
-            <Parameter Name="LowerLimE4" ParamId="3" ParamValue="-180" />
-            <Parameter Name="LowerLimE5" ParamId="4" ParamValue="-180" />
-            <Parameter Name="LowerLimE6" ParamId="5" ParamValue="-180" />
-            <Parameter Name="UpperLimE1" ParamId="6" ParamValue="3000" />
-            <Parameter Name="UpperLimE2" ParamId="7" ParamValue="2250" />
-            <Parameter Name="UpperLimE3" ParamId="8" ParamValue="2600" />
-            <Parameter Name="UpperLimE4" ParamId="9" ParamValue="180" />
-            <Parameter Name="UpperLimE5" ParamId="10" ParamValue="180" />
-            <Parameter Name="UpperLimE6" ParamId="11" ParamValue="180" />
+            <Parameter Name="LowerLimE1" ParamId="0" ParamValue="-20" />
+            <Parameter Name="LowerLimE2" ParamId="1" ParamValue="-20" />
+            <Parameter Name="LowerLimE3" ParamId="2" ParamValue="-20" />
+            <Parameter Name="LowerLimE4" ParamId="3" ParamValue="-20" />
+            <Parameter Name="LowerLimE5" ParamId="4" ParamValue="-20" />
+            <Parameter Name="LowerLimE6" ParamId="5" ParamValue="-20" />
+            <Parameter Name="UpperLimE1" ParamId="6" ParamValue="20" />
+            <Parameter Name="UpperLimE2" ParamId="7" ParamValue="20" />
+            <Parameter Name="UpperLimE3" ParamId="8" ParamValue="20" />
+            <Parameter Name="UpperLimE4" ParamId="9" ParamValue="20" />
+            <Parameter Name="UpperLimE5" ParamId="10" ParamValue="20" />
+            <Parameter Name="UpperLimE6" ParamId="11" ParamValue="20" />
+         </Parameters>
+      </RsiObject>
+      <RsiObject ObjTypeId="82" ObjType="AxisCorrMon" ObjId="AxisCorrMon_1">
+         <Parameters>
+            <Parameter Name="MaxA1" ParamId="0" ParamValue="100" />
+            <Parameter Name="MaxA2" ParamId="1" ParamValue="100" />
+            <Parameter Name="MaxA3" ParamId="2" ParamValue="100" />
+            <Parameter Name="MaxA4" ParamId="3" ParamValue="100" />
+            <Parameter Name="MaxA5" ParamId="4" ParamValue="100" />
+            <Parameter Name="MaxA6" ParamId="5" ParamValue="100" />
+            <Parameter Name="MaxE1" ParamId="6" ParamValue="100" />
+            <Parameter Name="MaxE2" ParamId="7" ParamValue="100" />
+            <Parameter Name="MaxE3" ParamId="8" ParamValue="100" />
+            <Parameter Name="MaxE4" ParamId="9" ParamValue="100" />
+            <Parameter Name="MaxE5" ParamId="10" ParamValue="100" />
+            <Parameter Name="MaxE6" ParamId="11" ParamValue="100" />
+         </Parameters>
+      </RsiObject>
+      <RsiObject ObjTypeId="81" ObjType="PosCorrMon" ObjId="PosCorrMon_1">
+         <Parameters>
+            <Parameter Name="MaxTrans" ParamId="0" ParamValue="100" />
+            <Parameter Name="MaxRotAngle" ParamId="1" ParamValue="100" />
+         </Parameters>
+      </RsiObject>
+      <RsiObject ObjTypeId="18" ObjType="Stop" ObjId="Stop_1">
+         <Inputs>
+            <Input InIdx="0" OutObjId="Ethernet_1" OutIdx="12" />
+         </Inputs>
+         <Parameters>
+            <Parameter Name="Mode" ParamId="0" ParamValue="4" />
+            <Parameter Name="Channel" ParamId="1" ParamValue="0" />
+         </Parameters>
+      </RsiObject>
+      <RsiObject ObjTypeId="55" ObjType="Monitor" ObjId="Monitor_1">
+         <Inputs>
+            <Input InIdx="0" OutObjId="AxisCorr_1" OutIdx="0" />
+            <Input InIdx="1" OutObjId="AxisCorr_1" OutIdx="1" />
+            <Input InIdx="2" OutObjId="AxisCorr_1" OutIdx="2" />
+            <Input InIdx="3" OutObjId="AxisCorrExt_1" OutIdx="0" />
+            <Input InIdx="4" OutObjId="AxisCorrExt_1" OutIdx="1" />
+            <Input InIdx="5" OutObjId="AxisCorrExt_1" OutIdx="2" />
+         </Inputs>
+         <Parameters>
+            <Parameter Name="Refresh" ParamId="0" ParamValue="1" />
+            <Parameter Name="Timeout" ParamId="1" ParamValue="50" />
+            <Parameter Name="ReqTimeZero" ParamId="2" ParamValue="1" />
+            <Parameter IsRuntime="false" Name="IP" ParamId="0" ParamValue="192.168.0.1" />
+            <Parameter IsRuntime="false" Name="Channel" ParamId="1" ParamValue="1" />
          </Parameters>
       </RsiObject>
    </RsiObjects>
@@ -2388,65 +2420,97 @@
       </BlueprintCollection>
    </BlueprintCollections>
    <Constructs xmlns="RsiConstruct">
-      <Construct Name="AxisCorr_1" BlueprintName="AxisCorr" BlueprintCollection="RSI" Location="390,-180">
-         <Inputs>
-            <Input Name="CorrA1" SourceObject="Ethernet_1" SourcePort="Out1" Points="-469.483333333333,-136.5;-457.483333333333,-136.5;-445.483333333333,-136.5;-445.483333333333,-160.5;356,-160.5;372,-160.5" />
-            <Input Name="CorrA2" SourceObject="Ethernet_1" SourcePort="Out2" Points="-469.483333333333,-106.5;-449.483333333333,-106.5;-429.483333333333,-106.5;-429.483333333333,-130.5;356,-130.5;372,-130.5" />
-            <Input Name="CorrA3" SourceObject="Ethernet_1" SourcePort="Out3" Points="-469.483333333333,-76.5;-441.483333333333,-76.5;-413.483333333333,-76.5;-413.483333333333,-100.5;356,-100.5;372,-100.5" />
-            <Input Name="CorrA4" SourceObject="Ethernet_1" SourcePort="Out4" Points="-469.483333333333,-46.5;-433.483333333333,-46.5;-397.483333333333,-46.5;-397.483333333333,-70.5;356,-70.5;372,-70.5" />
-            <Input Name="CorrA5" SourceObject="Ethernet_1" SourcePort="Out5" Points="-469.483333333333,-16.5;-425.483333333333,-16.5;-381.483333333333,-16.5;-381.483333333333,-40.5;356,-40.5;372,-40.5" />
-            <Input Name="CorrA6" SourceObject="Ethernet_1" SourcePort="Out6" Points="-469.483333333333,13.5;-417.483333333333,13.5;-365.483333333333,13.5;-365.483333333333,-10.5;356,-10.5;372,-10.5" />
-         </Inputs>
+      <Construct Name="Ethernet_1" BlueprintName="Ethernet" BlueprintCollection="RSI" Location="-168,-48">
          <Parameters>
-            <DoubleParameter Name="LowerLimA1" Value="-180" />
-            <DoubleParameter Name="LowerLimA2" Value="-90" />
-            <DoubleParameter Name="LowerLimA3" Value="-200" />
-            <DoubleParameter Name="LowerLimA4" Value="-180" />
-            <DoubleParameter Name="LowerLimA5" Value="-180" />
-            <DoubleParameter Name="LowerLimA6" Value="-180" />
-            <DoubleParameter Name="UpperLimA1" Value="180" />
-            <DoubleParameter Name="UpperLimA2" Value="180" />
-            <DoubleParameter Name="UpperLimA3" Value="180" />
-            <DoubleParameter Name="UpperLimA4" Value="180" />
-            <DoubleParameter Name="UpperLimA5" Value="100" />
-            <DoubleParameter Name="UpperLimA6" Value="180" />
-         </Parameters>
-      </Construct>
-      <Construct Name="Ethernet_1" BlueprintName="Ethernet" BlueprintCollection="RSI" Location="-648,-156">
-         <Parameters>
-            <StringParameter Name="ConfigFile" Value="ros_rsi_ethernet.xml" />
-            <IntParameter Name="Timeout" Value="1000" />
-            <IntParameter Name="Flag" Value="1" />
+            <StringParameter Name="ConfigFile" Value="ros_rsi_ethernet_extaxis_v2.xml" />
+            <IntParameter Name="Timeout" Value="100" />
             <IntParameter Name="Precision" Value="4" />
          </Parameters>
       </Construct>
-      <Construct Name="AxisCorrMon_1" BlueprintName="AxisCorrMon" BlueprintCollection="RSI" Location="390,174">
-         <Parameters>
-            <DoubleParameter Name="MaxA1" Value="180" />
-            <DoubleParameter Name="MaxA2" Value="180" />
-            <DoubleParameter Name="MaxA3" Value="180" />
-            <DoubleParameter Name="MaxA4" Value="180" />
-            <DoubleParameter Name="MaxA5" Value="180" />
-            <DoubleParameter Name="MaxA6" Value="180" />
-         </Parameters>
-      </Construct>
-      <Construct Name="AxisCorrExt_1" BlueprintName="AxisCorrExt" BlueprintCollection="RSI" Location="-18,84">
+      <Construct Name="AxisCorr_1" BlueprintName="AxisCorr" BlueprintCollection="RSI" Location="234,-78">
          <Inputs>
-            <Input Name="CorrE1" SourceObject="Ethernet_1" SourcePort="Out7" Points="-469.483333333333,43.5;-421.483333333333,43.5;-373.483333333333,43.5;-373.483333333333,103.5;-52,103.5;-36,103.5" />
-            <Input Name="CorrE2" SourceObject="Ethernet_1" SourcePort="Out8" Points="-469.483333333333,73.5;-429.483333333333,73.5;-389.483333333333,73.5;-389.483333333333,133.5;-52,133.5;-36,133.5" />
-            <Input Name="CorrE3" SourceObject="Ethernet_1" SourcePort="Out9" Points="-469.483333333333,103.5;-437.483333333333,103.5;-405.483333333333,103.5;-405.483333333333,163.5;-52,163.5;-36,163.5" />
-            <Input Name="CorrE4" SourceObject="Ethernet_1" SourcePort="Out10" Points="-469.483333333333,133.5;-445.483333333333,133.5;-421.483333333333,133.5;-421.483333333333,193.5;-52,193.5;-36,193.5" />
-            <Input Name="CorrE5" SourceObject="Ethernet_1" SourcePort="Out11" Points="-469.483333333333,163.5;-453.483333333333,163.5;-437.483333333333,163.5;-437.483333333333,223.5;-52,223.5;-36,223.5" />
-            <Input Name="CorrE6" SourceObject="Ethernet_1" SourcePort="Out12" Points="-469.483333333333,193.5;-461.483333333333,193.5;-453.483333333333,193.5;-453.483333333333,253.5;-52,253.5;-36,253.5" />
+            <Input Name="CorrA1" SourceObject="Ethernet_1" SourcePort="Out1" Points="10.5166666666667,-28.5;22.5166666666667,-28.5;34.5166666666667,-28.5;34.5166666666667,-58.5;200,-58.5;216,-58.5" />
+            <Input Name="CorrA2" SourceObject="Ethernet_1" SourcePort="Out2" Points="10.5166666666667,1.5;30.5166666666667,1.5;50.5166666666667,1.5;50.5166666666667,-28.5;200,-28.5;216,-28.5" />
+            <Input Name="CorrA3" SourceObject="Ethernet_1" SourcePort="Out3" Points="10.5166666666667,31.5;38.5166666666667,31.5;66.5166666666667,31.5;66.5166666666667,1.5;200,1.5;216,1.5" />
+            <Input Name="CorrA4" SourceObject="Ethernet_1" SourcePort="Out4" Points="10.5166666666667,61.5;46.5166666666667,61.5;82.5166666666667,61.5;82.5166666666667,31.5;200,31.5;216,31.5" />
+            <Input Name="CorrA5" SourceObject="Ethernet_1" SourcePort="Out5" Points="10.5166666666667,91.5;54.5166666666667,91.5;98.5166666666667,91.5;98.5166666666667,61.5;200,61.5;216,61.5" />
+            <Input Name="CorrA6" SourceObject="Ethernet_1" SourcePort="Out6" Points="10.5166666666667,121.5;62.5166666666667,121.5;114.516666666667,121.5;114.516666666667,91.5;200,91.5;216,91.5" />
          </Inputs>
          <Parameters>
-            <DoubleParameter Name="LowerLimE1" Value="-180" />
-            <DoubleParameter Name="LowerLimE2" Value="-180" />
-            <DoubleParameter Name="LowerLimE3" Value="-180" />
-            <DoubleParameter Name="UpperLimE1" Value="180" />
-            <DoubleParameter Name="UpperLimE2" Value="180" />
-            <DoubleParameter Name="UpperLimE3" Value="180" />
+            <DoubleParameter Name="LowerLimA1" Value="-20" />
+            <DoubleParameter Name="LowerLimA2" Value="-20" />
+            <DoubleParameter Name="LowerLimA3" Value="-20" />
+            <DoubleParameter Name="LowerLimA4" Value="-20" />
+            <DoubleParameter Name="LowerLimA5" Value="-20" />
+            <DoubleParameter Name="LowerLimA6" Value="-20" />
+            <DoubleParameter Name="UpperLimA1" Value="20" />
+            <DoubleParameter Name="UpperLimA2" Value="20" />
+            <DoubleParameter Name="UpperLimA3" Value="20" />
+            <DoubleParameter Name="UpperLimA4" Value="20" />
+            <DoubleParameter Name="UpperLimA5" Value="20" />
+            <DoubleParameter Name="UpperLimA6" Value="20" />
          </Parameters>
+      </Construct>
+      <Construct Name="AxisCorrExt_1" BlueprintName="AxisCorrExt" BlueprintCollection="RSI" Location="240,276">
+         <Inputs>
+            <Input Name="CorrE1" SourceObject="Ethernet_1" SourcePort="Out7" Points="10.5166666666667,151.5;66.5166666666667,151.5;122.516666666667,151.5;122.516666666667,295.5;206,295.5;222,295.5" />
+            <Input Name="CorrE2" SourceObject="Ethernet_1" SourcePort="Out8" Points="10.5166666666667,181.5;58.5166666666667,181.5;106.516666666667,181.5;106.516666666667,325.5;206,325.5;222,325.5" />
+            <Input Name="CorrE3" SourceObject="Ethernet_1" SourcePort="Out9" Points="10.5166666666667,211.5;50.5166666666667,211.5;90.5166666666667,211.5;90.5166666666667,355.5;206,355.5;222,355.5" />
+            <Input Name="CorrE4" SourceObject="Ethernet_1" SourcePort="Out10" Points="10.5166666666667,241.5;42.5166666666667,241.5;74.5166666666667,241.5;74.5166666666667,385.5;206,385.5;222,385.5" />
+            <Input Name="CorrE5" SourceObject="Ethernet_1" SourcePort="Out11" Points="10.5166666666667,271.5;34.5166666666667,271.5;58.5166666666667,271.5;58.5166666666667,415.5;206,415.5;222,415.5" />
+            <Input Name="CorrE6" SourceObject="Ethernet_1" SourcePort="Out12" Points="10.5166666666667,301.5;26.5166666666667,301.5;42.5166666666667,301.5;42.5166666666667,445.5;206,445.5;222,445.5" />
+         </Inputs>
+         <Parameters>
+            <DoubleParameter Name="LowerLimE1" Value="-20" />
+            <DoubleParameter Name="LowerLimE2" Value="-20" />
+            <DoubleParameter Name="LowerLimE3" Value="-20" />
+            <DoubleParameter Name="LowerLimE4" Value="-20" />
+            <DoubleParameter Name="LowerLimE5" Value="-20" />
+            <DoubleParameter Name="LowerLimE6" Value="-20" />
+            <DoubleParameter Name="UpperLimE1" Value="20" />
+            <DoubleParameter Name="UpperLimE2" Value="20" />
+            <DoubleParameter Name="UpperLimE3" Value="20" />
+            <DoubleParameter Name="UpperLimE4" Value="20" />
+            <DoubleParameter Name="UpperLimE5" Value="20" />
+            <DoubleParameter Name="UpperLimE6" Value="20" />
+         </Parameters>
+      </Construct>
+      <Construct Name="AxisCorrMon_1" BlueprintName="AxisCorrMon" BlueprintCollection="RSI" Location="258,630">
+         <Parameters>
+            <DoubleParameter Name="MaxA1" Value="100" />
+            <DoubleParameter Name="MaxA2" Value="100" />
+            <DoubleParameter Name="MaxA3" Value="100" />
+            <DoubleParameter Name="MaxA4" Value="100" />
+            <DoubleParameter Name="MaxA5" Value="100" />
+            <DoubleParameter Name="MaxA6" Value="100" />
+            <DoubleParameter Name="MaxE1" Value="100" />
+            <DoubleParameter Name="MaxE2" Value="100" />
+            <DoubleParameter Name="MaxE3" Value="100" />
+            <DoubleParameter Name="MaxE4" Value="100" />
+            <DoubleParameter Name="MaxE5" Value="100" />
+            <DoubleParameter Name="MaxE6" Value="100" />
+         </Parameters>
+      </Construct>
+      <Construct Name="PosCorrMon_1" BlueprintName="PosCorrMon" BlueprintCollection="RSI" Location="252,1008">
+         <Parameters>
+            <DoubleParameter Name="MaxTrans" Value="100" />
+            <DoubleParameter Name="MaxRotAngle" Value="100" />
+         </Parameters>
+      </Construct>
+      <Construct Name="Stop_1" BlueprintName="Stop" BlueprintCollection="RSI" Location="252,1200">
+         <Inputs>
+            <Input Name="In1" SourceObject="Ethernet_1" SourcePort="Out13" Points="10.5166666666667,331.5;18.5166666666667,331.5;26.5166666666667,331.5;26.5166666666667,1219.5;218,1219.5;234,1219.5" />
+         </Inputs>
+      </Construct>
+      <Construct Name="Monitor_1" BlueprintName="Monitor" BlueprintCollection="RSI" Location="648,-222">
+         <Inputs>
+            <Input Name="In1" SourceObject="AxisCorr_1" SourcePort="Stat" Points="424.133333333333,-58.5;436.133333333333,-58.5;448.133333333333,-58.5;448.133333333333,-202.5;614,-202.5;630,-202.5" />
+            <Input Name="In2" SourceObject="AxisCorr_1" SourcePort="A1" Points="424.133333333333,-28.5;444.133333333333,-28.5;464.133333333333,-28.5;464.133333333333,-172.5;614,-172.5;630,-172.5" />
+            <Input Name="In3" SourceObject="AxisCorr_1" SourcePort="A2" Points="424.133333333333,1.5;452.133333333333,1.5;480.133333333333,1.5;480.133333333333,-142.5;614,-142.5;630,-142.5" />
+            <Input Name="In4" SourceObject="AxisCorrExt_1" SourcePort="Stat" Points="430.133333333333,295.5;442.133333333333,295.5;534,295.5;534,-112.5;614,-112.5;630,-112.5" />
+            <Input Name="In5" SourceObject="AxisCorrExt_1" SourcePort="E1" Points="430.133333333333,325.5;450.133333333333,325.5;563,325.5;563,-82.5;614,-82.5;630,-82.5" />
+            <Input Name="In6" SourceObject="AxisCorrExt_1" SourcePort="E2" Points="430.133333333333,355.5;458.133333333333,355.5;589,355.5;589,-52.5;614,-52.5;630,-52.5" />
+         </Inputs>
       </Construct>
    </Constructs>
 </RsiContext>
