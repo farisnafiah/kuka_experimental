@@ -2422,7 +2422,7 @@
    <Constructs xmlns="RsiConstruct">
       <Construct Name="Ethernet_1" BlueprintName="Ethernet" BlueprintCollection="RSI" Location="-168,-48">
          <Parameters>
-            <StringParameter Name="ConfigFile" Value="ros_rsi_ethernet_extaxis_v2.xml" />
+            <StringParameter Name="ConfigFile" Value="ros_rsi_extaxis_v2.xml" />
             <IntParameter Name="Timeout" Value="100" />
             <IntParameter Name="Precision" Value="4" />
          </Parameters>
