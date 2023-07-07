@@ -72,7 +72,7 @@ namespace kuka_rsi_hw_interface
 static const double RAD2DEG = 57.295779513082323;
 static const double DEG2RAD = 0.017453292519943295;
 
-class KukaHardwareInterface : public hardware_interface::RobotHW
+class KukaHardwareInterface : public hardware_interface::RobotHW 
 {
 
 private:
@@ -120,6 +120,7 @@ private:
 public:
 
   KukaHardwareInterface();
+  KukaHardwareInterface(int dof);
   ~KukaHardwareInterface();
 
   void start();

@@ -47,10 +47,12 @@ int main(int argc, char** argv)
 
   ros::AsyncSpinner spinner(2);
   spinner.start();
-
+  
+  int ndof;
   ros::NodeHandle nh;
+  nh.getParam("ndof", ndof);
 
-  kuka_rsi_hw_interface::KukaHardwareInterface kuka_rsi_hw_interface;
+  kuka_rsi_hw_interface::KukaHardwareInterface kuka_rsi_hw_interface(ndof);
   kuka_rsi_hw_interface.configure();
 
   // Set up timers
