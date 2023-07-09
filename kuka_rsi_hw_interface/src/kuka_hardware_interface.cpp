@@ -47,7 +47,7 @@ namespace kuka_rsi_hw_interface
 
 KukaHardwareInterface::KukaHardwareInterface()
 {
-  n_dof_ = 9;
+  n_dof_ = 6;
   joint_position_.resize(n_dof_);
   joint_velocity_.resize(n_dof_);
   joint_effort_.resize(n_dof_), 
