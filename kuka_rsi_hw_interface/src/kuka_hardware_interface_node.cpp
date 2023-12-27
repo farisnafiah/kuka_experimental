@@ -49,8 +49,12 @@ int main(int argc, char** argv)
   spinner.start();
   
   int ndof;
+  int manipulator_ndof;
+  int gantry_ndof;
   ros::NodeHandle nh;
   nh.getParam("ndof", ndof);
+  nh.getParam("manipulator_ndof", manipulator_ndof);
+  nh.getParam("gantry_ndof", gantry_ndof);
 
   kuka_rsi_hw_interface::KukaHardwareInterface kuka_rsi_hw_interface(ndof);
   kuka_rsi_hw_interface.configure();

@@ -121,6 +121,7 @@ public:
 
   KukaHardwareInterface();
   KukaHardwareInterface(int dof);
+  KukaHardwareInterface(int manipulator_dof, int gantry_dof);
   ~KukaHardwareInterface();
 
   void start();

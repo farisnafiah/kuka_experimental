@@ -141,6 +141,7 @@ KukaHardwareInterface::KukaHardwareInterface(int dof)
   ROS_INFO_STREAM_NAMED("hardware_interface", "Loaded kuka_rsi_hardware_interface");
   
 }
+
 KukaHardwareInterface::~KukaHardwareInterface()
 {
 
@@ -234,7 +235,6 @@ void KukaHardwareInterface::configure()
 {
   const std::string param_addr = "rsi/listen_address";
   const std::string param_port = "rsi/listen_port";
-
 
   if (nh_.getParam(param_addr, local_host_) && nh_.getParam(param_port, local_port_))
   {
