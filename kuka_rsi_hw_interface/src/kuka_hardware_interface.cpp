@@ -50,13 +50,13 @@ KukaHardwareInterface::KukaHardwareInterface()
   n_dof_ = 6;
   joint_position_.resize(n_dof_);
   joint_velocity_.resize(n_dof_);
-  joint_effort_.resize(n_dof_), 
-  joint_position_command_.resize(n_dof_), 
-  joint_velocity_command_.resize(n_dof_), 
-  joint_effort_command_.resize(n_dof_), 
-  joint_names_.resize(n_dof_), 
-  rsi_initial_joint_positions_.resize(n_dof_), 
-  rsi_joint_position_corrections_.resize(n_dof_), 
+  joint_effort_.resize(n_dof_);
+  joint_position_command_.resize(n_dof_);
+  joint_velocity_command_.resize(n_dof_);
+  joint_effort_command_.resize(n_dof_);
+  joint_names_.resize(n_dof_);
+  rsi_initial_joint_positions_.resize(n_dof_);
+  rsi_joint_position_corrections_.resize(n_dof_);
   ipoc_=0;
   
   in_buffer_.resize(1024);
@@ -98,13 +98,13 @@ KukaHardwareInterface::KukaHardwareInterface(int dof)
   n_dof_ = dof;
   joint_position_.resize(n_dof_);
   joint_velocity_.resize(n_dof_);
-  joint_effort_.resize(n_dof_), 
-  joint_position_command_.resize(n_dof_), 
-  joint_velocity_command_.resize(n_dof_), 
-  joint_effort_command_.resize(n_dof_), 
-  joint_names_.resize(n_dof_), 
-  rsi_initial_joint_positions_.resize(n_dof_), 
-  rsi_joint_position_corrections_.resize(n_dof_), 
+  joint_effort_.resize(n_dof_);
+  joint_position_command_.resize(n_dof_);
+  joint_velocity_command_.resize(n_dof_);
+  joint_effort_command_.resize(n_dof_);
+  joint_names_.resize(n_dof_);
+  rsi_initial_joint_positions_.resize(n_dof_);
+  rsi_joint_position_corrections_.resize(n_dof_);
   ipoc_=0;
   
   in_buffer_.resize(1024);
